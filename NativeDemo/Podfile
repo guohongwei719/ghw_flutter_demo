@@ -1,6 +1,0 @@
-platform :ios, '9.0'
-use_frameworks!
-target 'NativeDemo' do
-  flutter_application_path = '../wechat_module/'
-  eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
-end
