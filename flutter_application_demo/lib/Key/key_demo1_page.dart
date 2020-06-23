@@ -5,12 +5,12 @@ import 'dart:math';
 
 //// 官方demo
 //
-class KeyDemo2Page extends StatefulWidget {
+class KeyDemo1Page extends StatefulWidget {
   @override
-  _KeyDemo2PageState createState() => _KeyDemo2PageState();
+  _KeyDemo1PageState createState() => _KeyDemo1PageState();
 }
 
-class _KeyDemo2PageState extends State<KeyDemo2Page> {
+class _KeyDemo1PageState extends State<KeyDemo1Page> {
 
   List<Widget> tiles = [
     StatelessColorfulTile(),
@@ -27,8 +27,9 @@ class _KeyDemo2PageState extends State<KeyDemo2Page> {
         centerTitle: true,
         title: Text("Key demo"),
       ),
-      body: ListView(children:tiles,),
-//      body: Row(children: tiles,),
+// 为啥 Row 和 ListView 不一样，一个变一个不变
+//      body: ListView(children:tiles,),
+      body: Row(children: tiles,),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.delete),
         onPressed: (){
@@ -68,12 +69,12 @@ class StatelessColorfulTile extends StatelessWidget {
 
 
 
-//class KeyDemo2Page extends StatefulWidget {
+//class KeyDemo1Page extends StatefulWidget {
 //  @override
-//  _KeyDemo2PageState createState() => _KeyDemo2PageState();
+//  _KeyDemo1PageState createState() => _KeyDemo1PageState();
 //}
 //
-//class _KeyDemo2PageState extends State<KeyDemo2Page> {
+//class _KeyDemo1PageState extends State<KeyDemo1Page> {
 //  List<StatelessColorfulTile> tiles = [
 //    StatelessColorfulTile(),
 //    StatelessColorfulTile(),
@@ -129,12 +130,12 @@ class StatelessColorfulTile extends StatelessWidget {
 
 // 第三不 使用了 key 以后就又可以切换了
 
-//class KeyDemo2Page extends StatefulWidget {
+//class KeyDemo1Page extends StatefulWidget {
 //  @override
-//  _KeyDemo2PageState createState() => _KeyDemo2PageState();
+//  _KeyDemo1PageState createState() => _KeyDemo1PageState();
 //}
 //
-//class _KeyDemo2PageState extends State<KeyDemo2Page> {
+//class _KeyDemo1PageState extends State<KeyDemo1Page> {
 //  List<StatelessColorfulTile> tiles = [
 //    StatelessColorfulTile(key: UniqueKey(),),
 //    StatelessColorfulTile(key: UniqueKey(),),
@@ -194,12 +195,12 @@ class StatelessColorfulTile extends StatelessWidget {
 
 // 第四步 在StatelessColorfulTile 外面包一个 Padding，要注意 key要提出来，不然还是会重新创建
 
-//class KeyDemo2Page extends StatefulWidget {
+//class KeyDemo1Page extends StatefulWidget {
 //  @override
-//  _KeyDemo2PageState createState() => _KeyDemo2PageState();
+//  _KeyDemo1PageState createState() => _KeyDemo1PageState();
 //}
 //
-//class _KeyDemo2PageState extends State<KeyDemo2Page> {
+//class _KeyDemo1PageState extends State<KeyDemo1Page> {
 //
 //  // 下面这样，每次点击按钮都会切换，颜色都会变化
 ////  List<Widget> tiles = [
