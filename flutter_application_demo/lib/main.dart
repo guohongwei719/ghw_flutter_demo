@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'Key/key_demo1_page.dart';
 import 'Key/key_demo2_page.dart';
+import 'State/inheritedWidget_demo_page.dart';
 
 void main() {
   debugPaintSizeEnabled = false;

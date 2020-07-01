@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 
-//// 官方demo
-//
+////// 官方demo
+////
 class KeyDemo1Page extends StatefulWidget {
   @override
   _KeyDemo1PageState createState() => _KeyDemo1PageState();
@@ -15,9 +15,11 @@ class _KeyDemo1PageState extends State<KeyDemo1Page> {
   List<Widget> tiles = [
     StatelessColorfulTile(),
     StatelessColorfulTile(),
-
   ];
 
+  Widget _itemForRow(BuildContext context, int index) {
+    return tiles[index];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +29,25 @@ class _KeyDemo1PageState extends State<KeyDemo1Page> {
         centerTitle: true,
         title: Text("Key demo"),
       ),
-// 为啥 Row 和 ListView 不一样，一个变一个不变
-//      body: ListView(children:tiles,),
-      body: Row(children: tiles,),
+// 为啥 Row 和 ListView 不一样，List 不行，Row 可以，List使用 itemBuilder 又可以
+
+//      body: ListView(children:tiles, ),
+
+      body: Column(children: tiles,),
+
+//      body: ListView.builder(
+//        itemCount: tiles.length,
+//        itemBuilder: _itemForRow,
+//      ),
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.delete),
         onPressed: (){
           setState(() {
             tiles.insert(1, tiles.removeAt(0));
+//              tiles.removeLast();
+//              print("test");
+//              print(tiles);
           });
         },
       ),
@@ -62,13 +75,14 @@ class StatelessColorfulTile extends StatelessWidget {
 
 
 
+//************************************************************************************************************
 
 
-
-// 第二步 StatelessColorfulTile 改为 StatefulWidget 那么久切换不成功
-
-
-
+//
+//// 第二步 StatelessColorfulTile 改为 StatefulWidget 那么久切换不成功
+//
+//
+//
 //class KeyDemo1Page extends StatefulWidget {
 //  @override
 //  _KeyDemo1PageState createState() => _KeyDemo1PageState();
@@ -91,7 +105,7 @@ class StatelessColorfulTile extends StatelessWidget {
 ////      body: ListView(
 ////        children:tiles,
 ////      ),
-//      body: Row(children: tiles,),
+//      body: Column(children: tiles,),
 //      floatingActionButton: FloatingActionButton(
 //        child: Icon(Icons.delete),
 //        onPressed: (){
@@ -128,8 +142,16 @@ class StatelessColorfulTile extends StatelessWidget {
 
 
 
-// 第三不 使用了 key 以后就又可以切换了
 
+
+
+
+
+//************************************************************************************************************
+
+
+//// 第三不 使用了 key 以后就又可以切换了
+//
 //class KeyDemo1Page extends StatefulWidget {
 //  @override
 //  _KeyDemo1PageState createState() => _KeyDemo1PageState();
@@ -152,7 +174,7 @@ class StatelessColorfulTile extends StatelessWidget {
 ////      body: ListView(
 ////        children:tiles,
 ////      ),
-//      body: Row(children: tiles,),
+//      body: Column(children: tiles,),
 //      floatingActionButton: FloatingActionButton(
 //        child: Icon(Icons.delete),
 //        onPressed: (){
@@ -193,8 +215,13 @@ class StatelessColorfulTile extends StatelessWidget {
 
 
 
-// 第四步 在StatelessColorfulTile 外面包一个 Padding，要注意 key要提出来，不然还是会重新创建
 
+
+//************************************************************************************************************
+
+
+////// 第四步 在StatelessColorfulTile 外面包一个 Padding，要注意 key要提出来，不然还是会重新创建
+////
 //class KeyDemo1Page extends StatefulWidget {
 //  @override
 //  _KeyDemo1PageState createState() => _KeyDemo1PageState();
@@ -239,7 +266,7 @@ class StatelessColorfulTile extends StatelessWidget {
 ////      body: ListView(
 ////        children:tiles,
 ////      ),
-//      body: Row(children: tiles,),
+//      body: Column(children: tiles,),
 //      floatingActionButton: FloatingActionButton(
 //        child: Icon(Icons.delete),
 //        onPressed: (){
